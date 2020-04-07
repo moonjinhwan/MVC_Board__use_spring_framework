@@ -10,7 +10,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
 		System.out.println("home");
-		return "index";
+		return "redirect:/main";
 	}
 	
 }
