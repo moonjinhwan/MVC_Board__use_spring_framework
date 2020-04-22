@@ -20,6 +20,10 @@ public class UserBean {
 	@Size(min=4, max=20)
 	@Pattern(regexp = "[a-zA-Z0-9]*")
 	private String user_pw2;
+	private boolean userIdExist;
+	public UserBean(){
+		userIdExist = false;
+	}
 	public int getUser_idx() {
 		return user_idx;
 	}
@@ -49,5 +53,11 @@ public class UserBean {
 	}
 	public void setUser_pw2(String user_pw2) {
 		this.user_pw2 = user_pw2;
+	}
+	public boolean isUserIdExist() {
+		return userIdExist;
+	}
+	public void setUserIdExist(boolean userIdExist) {
+		this.userIdExist = userIdExist;
 	}
 }
