@@ -7,4 +7,10 @@
 		from user_table
 		where user_id = #{user_id}
 	</select>
+	<insert id="addUserInfo" parameterType="kr.co.mvcboard.beans.UserBean">
+		<![CDATA[
+			insert into user_table (user_idx, user_name, user_id, user_pw)
+			values (user_seq.nextval, #{user_name}, #{user_id}, #{user_pw})
+		]]>
+	</insert>
 </mapper>
