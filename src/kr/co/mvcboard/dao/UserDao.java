@@ -18,4 +18,7 @@ public class UserDao {
 	public void addUserInfo(UserBean userBean) {
 		sqlSessionTemplate.insert("user.addUserInfo", userBean);
 	}
+	public UserBean getLoginUserInfo(UserBean tempLoginUserBean) {
+		return sqlSessionTemplate.selectOne("user.getLoginUserInfo", tempLoginUserBean);
+	}
 }
