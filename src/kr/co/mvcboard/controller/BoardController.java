@@ -33,8 +33,7 @@ public class BoardController {
 	private BoardService boardService;
 	
 	@GetMapping("/main")
-	public String main(@RequestParam("board_info_idx") int board_info_idx,
-   			Model model) {
+	public String main(@RequestParam("board_info_idx") int board_info_idx, Model model) {
 		model.addAttribute("board_info_idx", board_info_idx);
 		
 		String boardInfoName=boardService.getBoardInfoName(board_info_idx);
@@ -85,5 +84,10 @@ public class BoardController {
 	@GetMapping("/delete")
 	public String delete() {
 		return "board/delete";
+	}
+	
+	@GetMapping("/not_writer")
+	public String not_writer() {
+		return "board/not_writer";
 	}
 }
