@@ -2,10 +2,12 @@ package kr.co.mvcboard.controller;
 
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,11 +18,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.mvcboard.beans.ContentBean;
+import kr.co.mvcboard.beans.UserBean;
 import kr.co.mvcboard.service.BoardService;
 
 @Controller
 @RequestMapping("/board")
 public class BoardController {
+	
+	@Resource(name="loginUserBean")
+	@Lazy
+	private UserBean loginUserBean;
 	
 	@Autowired
 	private BoardService boardService;
@@ -48,6 +55,8 @@ public class BoardController {
 		
 		ContentBean readContentBean = boardService.getContentInfo(content_idx);
 		model.addAttribute("readContentBean", readContentBean);
+		
+		model.addAttribute("loginUserBean", loginUserBean);
 		
 		return "board/read";
 	}
