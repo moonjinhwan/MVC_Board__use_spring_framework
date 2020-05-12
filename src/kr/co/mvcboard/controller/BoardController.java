@@ -107,7 +107,13 @@ public class BoardController {
 		return "board/modify_success";
 	}
 	@GetMapping("/delete")
-	public String delete() {
+	public String delete(@RequestParam("board_info_idx") int board_info_idx,
+			 @RequestParam("content_idx") int content_idx,
+			 Model model) {
+		model.addAttribute("board_info_idx", board_info_idx);
+		model.addAttribute("content_idx", content_idx);
+		boardService.ddeleteContentInfo(content_idx);
+		
 		return "board/delete";
 	}
 	
