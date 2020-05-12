@@ -103,6 +103,7 @@ public class BoardController {
 		if(result.hasErrors()) {
 			return "board/modify";
 		}
+		boardService.modifyContentInfo(modifyContentBean);
 		return "board/modify_success";
 	}
 	@GetMapping("/delete")
