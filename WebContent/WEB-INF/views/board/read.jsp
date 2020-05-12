@@ -22,6 +22,7 @@
 		<div class="col-sm-6">
 			<div class="card shadow">
 				<div class="card-body">
+					
 					<div class="form-group">
 						<label for="board_writer_name">작성자</label>
 						<input type="text" id="board_writer_name" name="board_writer_name" class="form-control" value="${readContentBean.content_writer_name }" disabled="disabled"/>
