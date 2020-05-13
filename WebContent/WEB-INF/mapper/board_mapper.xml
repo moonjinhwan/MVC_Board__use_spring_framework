@@ -55,4 +55,10 @@
 		delete from content_table
 		where content_idx=#{content_idx}
 	</delete>
+	
+	<select id="getContentCnt" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select count(*)
+		from content_table
+		where content_board_idx=#{board_info_idx}
+	</select>
  </mapper>

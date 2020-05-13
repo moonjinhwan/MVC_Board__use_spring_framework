@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.co.mvcboard.beans.ContentBean;
+import kr.co.mvcboard.beans.PageBean;
 import kr.co.mvcboard.beans.UserBean;
 import kr.co.mvcboard.dao.BoardDao;
 
@@ -89,5 +90,14 @@ public class BoardService {
 	
 	public void ddeleteContentInfo(int content_idx) {
 		boardDao.deleteContentInfo(content_idx);
+	}
+	
+	public PageBean getContentCnt(int board_info_idx, int current_page) {
+		
+		int contentCnt = boardDao.getContentCnt(board_info_idx);
+		
+		PageBean pageBean = new PageBean(contentCnt, current_page, page_listcnt, page_paginationcnt);
+		
+		return pageBean;
 	}
 }

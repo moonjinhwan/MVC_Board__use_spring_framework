@@ -38,4 +38,8 @@ public class BoardDao {
 	public void deleteContentInfo(int content_idx) {
 		sqlSessionTemplate.delete("board.deleteContentInfo", content_idx);
 	}
+	
+	public int getContentCnt(int board_info_idx) {
+		return sqlSessionTemplate.selectOne("board.getContentCnt", board_info_idx);
+	}
 }
