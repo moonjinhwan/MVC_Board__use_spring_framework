@@ -21,8 +21,7 @@
 		<div class="col-sm-3"></div>
 		<div class="col-sm-6">
 			<div class="card shadow">
-				<div class="card-body">
-					
+				<div class="card-body">	
 					<div class="form-group">
 						<label for="board_writer_name">작성자</label>
 						<input type="text" id="board_writer_name" name="board_writer_name" class="form-control" value="${readContentBean.content_writer_name }" disabled="disabled"/>
@@ -47,9 +46,9 @@
 					</c:if>
 					<div class="form-group">
 						<div class="text-right">
-							<a href="${root }board/main?board_info_idx=${board_info_idx}" class="btn btn-primary">목록보기</a>
+							<a href="${root }board/main?board_info_idx=${board_info_idx}&page=${page}" class="btn btn-primary">목록보기</a>
 							<c:if test="${loginUserBean.user_idx == readContentBean.content_writer_idx }">
-								<a href="${root }board/modify?board_info_idx=${board_info_idx}&content_idx=${content_idx}" class="btn btn-info">수정하기</a>
+								<a href="${root }board/modify?board_info_idx=${board_info_idx}&content_idx=${content_idx}&page=${page}" class="btn btn-info">수정하기</a>
 								<a href="${root }board/delete?board_info_idx=${board_info_idx}&content_idx=${content_idx}" class="btn btn-danger">삭제하기</a>
 							</c:if>
 						</div>
