@@ -23,7 +23,7 @@
 		<div class="col-lg-6" style="margin-top:20px">
 			<div class="card shadow">
 				<div class="card-body">
-					<h4 class="card-title">자유게시판</h4>
+					<h4 class="card-title">${boardList[idx.index].board_info_name }</h4>
 					<table class="table table-hover" id='board_list'>
 						<thead>
 							<tr>
@@ -36,7 +36,7 @@
 							<c:forEach var="obj" items='${sub_list }'>
 								<tr>
 									<td class="text-center">${obj.content_idx}</td>
-									<th><a href='${root }board/read?board_info_idx=${board_list[idx.index].board_info_idx}&content_idx=${obj.content_idx}&page=1'>${obj.content_subject }</a></th>
+									<th><a href='${root }board/read?board_info_idx=${boardList[idx.index].board_info_idx}&content_idx=${obj.content_idx}&page=1'>${obj.content_subject }</a></th>
 									<td class="text-center d-none d-xl-table-cell">${obj.content_date }</td>
 								</tr>
 							</c:forEach>
@@ -44,7 +44,7 @@
 						
 					</table>
 					
-					<a href="${root }board/main" class="btn btn-primary">더보기</a>
+					<a href="${root }board/main?board_info_idx=${boardList[idx.index].board_info_idx}" class="btn btn-primary">더보기</a>
 				</div>
 			</div>
 		</div>
